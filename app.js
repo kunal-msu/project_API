@@ -3,7 +3,10 @@ const { MongoClient } = require('mongodb');
 const app = express();
 
 const uri = 'mongodb+srv://kunal2025:helloworld2025@cluster0.tzqw6vg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; // replace with your MongoDB URI
-const client = new MongoClient(uri);
+const client = new MongoClient(uri,
+  {tls: true,
+  tlsAllowInvalidCertificates: false}
+);
 const dbName = 'library';
 const collectionName = 'tags';
 
